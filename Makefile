@@ -11,6 +11,7 @@ all: browser
 
 $(SCRYPTRAW): $(SCRYPTUNPACKED)/config.h
 	EMCC_DEBUG=2 $(EMCC) \
+		-s WASM=0 \
 		-s ASSERTIONS=2 \
 		-s LINKABLE=1 \
 		-s EXPORTED_FUNCTIONS="['_crypto_scrypt','_malloc','_free']" \
